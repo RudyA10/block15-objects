@@ -1,34 +1,34 @@
 const userInputString = prompt(
   "Please type the flavors you would like below, seperated by a comma",
-  "vanilla, vanilla, vanilla, strawberry, coffee, coffee"
+  " vanilla, vanilla, vanilla, strawberry, coffee, coffee"
 );
 
 const flavors = userInputString.split(",");
 console.log(flavors);
 
-function counter(array) {
-  const orders = {};
-  for (const item of array) {
-    if (item in orders) {
-      orders[item] += 1;
+function numberOfOrders(userInput) {
+  const countOfOrders = {};
+  for (let flavorItem of userInput) {
+    if (flavorItem in countOfOrders) {
+      countOfOrders[flavorItem] += 1;
     } else {
-      orders[item] = 1;
+      countOfOrders[flavorItem] = 1;
     }
   }
-  return orders;
+  return countOfOrders;
 }
 
-function ofFlavors(flavors) {
-  const counts = {};
-  for (const flavor of flavors) {
-    if (flavor in counts) {
-      counts[flavor] += 1;
+function numberOfFlavors(userInput) {
+  const countOfFlavors = {};
+  for (let flavor of userInput) {
+    if (flavor in countOfFlavors) {
+      countOfFlavors[flavor] += 1;
     } else {
-      counts[flavor] = 1;
+      countOfFlavors[flavor] = 1;
     }
   }
-  return counts;
+  return countOfFlavors;
 }
 
-console.log(counter(flavors));
-console.log(ofFlavors(flavors));
+console.log(numberOfOrders(flavors));
+console.log(numberOfFlavors(flavors));
